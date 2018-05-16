@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux'
+import {addGrocery} from "../store"
+
 
 class AddGrocery extends Component {
   constructor(props) {
@@ -37,4 +40,9 @@ class AddGrocery extends Component {
   }
 }
 
-export default AddGrocery;
+const mapDispatchToProps=(dispatch)=>{
+    return {add:(text)=>{dispatch(addGrocery(text))}}
+}
+
+export default connect(null,mapDispatchToProps)(AddGrocery)
+
